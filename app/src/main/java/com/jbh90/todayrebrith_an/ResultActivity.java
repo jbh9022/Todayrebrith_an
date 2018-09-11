@@ -9,7 +9,7 @@ public class ResultActivity extends AppCompatActivity {
     private float result;
     private int slot;
     private TextView text1, text2;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
