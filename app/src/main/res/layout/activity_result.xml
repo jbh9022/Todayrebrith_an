@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity"
+    android:orientation="vertical">
+<TextView
+    android:id="@+id/resultText1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="테스트1"/>
+    <TextView
+        android:id="@+id/resultText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="테스트2"/>
+</LinearLayout>
