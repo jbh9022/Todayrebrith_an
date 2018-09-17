@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="sp_Rank">
+        <item>7성</item>
+        <item>6성</item>
+    </string-array>
+    <!--<string-array name="sp_Rank_7Name">-->
+        <!--<itme>일반 고대</itme>-->
+        <!--<itme>일반 불대</itme>-->
+        <!--<itme>일반 늡지</itme>-->
+        <!--<item>일반 지옥</item>-->
+        <!--<itme>상급 고대</itme>-->
+        <!--<itme>상급 불대</itme>-->
+        <!--<itme>상급 늡지</itme>-->
+        <!--<item>차원의 신기</item>-->
+        <!--<item>영웅의 무기</item>-->
+        <!--<item>승리의 성물</item>-->
+        <!--<item>권위의 성물</item>-->
+        <!--<item>풍요의 성물</item>-->
+        <!--<item>유희의 성물</item>-->
+        <!--<item>신들의 보물</item>-->
+        <!--<item>라그나로크의 경고</item>-->
+        <!--<item>고대 신화의 무기</item>-->
+    <!--</string-array>-->
+
+    <string-array name="sp_Rank_6Name">
+        <item>초신성의 강림자</item>
+        <item>정의의 신궁</item>
+        <item>암흑 군단자의 전투복</item>
+        <item>빙결의 기사 무장</item>
+        <item>야차왕의 무구</item>
+        <item>풍요의 유산</item>
+        <item>고대 차원수의 무장</item>
+    </string-array>
+    <string-array name="sp_Rank_7ch">
+        <item>0초</item>
+        <item>1초</item>
+    </string-array>
+    <string-array name="sp_Rank_6ch">
+        <item>0초</item>
+        <item>1초</item>
+        <item>2초</item>
+        <item>3초</item>
+    </string-array>
+</resources>

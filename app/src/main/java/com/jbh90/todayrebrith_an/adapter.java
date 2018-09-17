@@ -47,35 +47,15 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         holder.pagLay5.setLayoutParams(new LinearLayout.LayoutParams(width1 * 3, heigth1));
         holder.txt1.setText(post.getName());
 
-        if(post.getName().equals("(7성)일반 고대")){
-            String[] num1_1 = {"0","1"};
-            String[] num1_2 = {"0","2","4"};
+        if(post.getName().equals("(7성)일반 고대")) {
+            String[] num1_1 = {"0", "1"};
+            String[] num1_2 = {"0", "2", "4"};
             ArrayAdapter<String> spAdapter1_1, spAdapter1_2;
-            spAdapter1_1 = new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item,num1_1);
-            spAdapter1_2 = new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item,num1_2);
+            spAdapter1_1 = new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item, num1_1);
+            spAdapter1_2 = new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item, num1_2);
             holder.spinner1.setAdapter(spAdapter1_1);
             holder.spinner2.setAdapter(spAdapter1_2);
 
-            if(holder.spinner1.getSelectedItem().toString().equals("0")){
-                if(holder.spinner2.getSelectedItem().toString().equals("2")){
-                    holder.txt2.setText("37");
-                    holder.txt3.setText("0");
-                }
-                else if(holder.spinner2.getSelectedItem().toString().equals("4")){
-                    holder.txt2.setText("37");
-                    holder.txt3.setText("360");
-                }
-            }
-            else if(holder.spinner1.getSelectedItem().toString().equals("1")){
-                if(holder.spinner2.getSelectedItem().toString().equals("2")){
-                    holder.txt2.setText("38");
-                    holder.txt3.setText("0");
-                }
-                else if(holder.spinner2.getSelectedItem().toString().equals("4")){
-                    holder.txt2.setText("38");
-                    holder.txt3.setText("830");
-                }
-            }
         }
 
     }
