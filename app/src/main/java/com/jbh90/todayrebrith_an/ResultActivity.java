@@ -38,7 +38,6 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
     String[] sp_Rank_7ch;
     String[] sp_Rank_6ch;
 
-    String a, b,c, d;
     //7성
     String[] sel_7Name = {"일반 고대", "일반 불대","일반 늡지", "일반 지옥", "상급 고대",
             "상급 불대", "상급 늡지", "차원의 신기", "영웅의 무기", "승리의 성물",
@@ -62,6 +61,7 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
         sp_Rank_6ch= getResources().getStringArray(R.array.sp_Rank_6ch);
         sp_Rank_6Name= getResources().getStringArray(R.array.sp_Rank_6Name);
 //        sp_Rank_7Name= getResources().getStringArray(R.array.sp_Rank_7Name);
+        
         init();
         sizePhone();
 
@@ -108,10 +108,10 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
         selSp4 = (Spinner)findViewById(R.id.selSp4);
     }
 
-
+    //등급 설정
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        //등급 설정
+
            switch (position) {
                //7성
                case 0:
@@ -122,15 +122,14 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
                case 1:
                    //6성 초월 수
                    sel6_ch();
-
                    break;
            }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
+
 //7성 초월 수
     private void sel7_ch(){
         selSp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -161,12 +160,23 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
         selSp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                switch (position){
+                    case 0:
+                        sel6_set();
+                        break;
+                    case 1:
+                        sel6_set();
+                        break;
+                    case 2:
+                        sel6_set();
+                        break;
+                    case 3:
+                        sel6_set();
+                        break;
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         ArrayAdapter<String> sel6ch_Adapter = new ArrayAdapter<String>(this ,R.layout.support_simple_spinner_dropdown_item, sp_Rank_6ch);
@@ -254,37 +264,837 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
                         ArrayAdapter<String> sel4_1= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set1);
                         selSp4.setAdapter(sel4_1);
                         break;
+                    //일반 늡지
                     case 2:
+                        String[] set2 = {"5"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "600";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "1450";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_2= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set2);
+                        selSp4.setAdapter(sel4_2);
                         break;
+                        //일반 지옥
                     case 3:
+                        String[] set3 = {"6"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "800";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "1480";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_3= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set3);
+                        selSp4.setAdapter(sel4_3);
                         break;
+                        //상급 고대
                     case 4:
+                        String[] set4={"2", "4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                if(selSp4.getSelectedItem().equals("2")){
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "37";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "38";
+                                        hun1 = "0";
+                                    }
+
+                                }
+                                if(selSp4.getSelectedItem().equals("4")){
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "37";
+                                        hun1 = "450";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "38";
+                                        hun1 = "1250";
+                                    }
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+                            }
+                        });
+                        ArrayAdapter<String> sel4_4 = new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set4);
+                        selSp4.setAdapter(sel4_4);
                         break;
+                        //상급 불대
                     case 5:
+                        String[] set5={"2", "4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0:
+                                        if(selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "37";
+                                            hun1 = "0";
+                                        }
+                                        if(selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "38";
+                                            hun1 = "0";
+                                        }
+                                        break;
+                                    case 1:
+                                        if(selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "37";
+                                            hun1 = "450";
+                                        }
+                                        if(selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "38";
+                                            hun1 = "1480";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+                            }
+                        });
+                        ArrayAdapter<String> sel4_5= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set5);
+                        selSp4.setAdapter(sel4_5);
                         break;
+                        //상급 늡지
                     case 6:
+                        String[] set6 = {"4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "480";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "1520";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_6= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set6);
+                        selSp4.setAdapter(sel4_6);
                         break;
+                        // 차원의 신기
                     case 7:
+                        String[] set7 = {"6"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "800";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "1650";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_7= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set7);
+                        selSp4.setAdapter(sel4_7);
                         break;
+                        //영웅의 무기
                     case 8:
+                        String[] set8 = {"4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "450";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "920";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_8= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set8);
+                        selSp4.setAdapter(sel4_8);
                         break;
+                        //승리의 성물
                     case 9:
+                        String[] set9 = {"3"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "300";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "620";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_9= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set9);
+                        selSp4.setAdapter(sel4_9);
                         break;
+                        //권위의 성물
                     case 10:
+                        String[] set10 = {"3"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "300";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "620";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_10= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set10);
+                        selSp4.setAdapter(sel4_10);
                         break;
+                        //풍요의 성물
                     case 11:
+                        String[] set11 = {"3"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "300";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "620";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_11= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set11);
+                        selSp4.setAdapter(sel4_11);
                         break;
+                        //유희의 성물
                     case 12:
+                        String[] set12 = {"3"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "300";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "620";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_12= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set12);
+                        selSp4.setAdapter(sel4_12);
                         break;
+                        //신들의 보물
                     case 13:
+                        String[] set13 = {"4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "0";
+                                            hun1 = "420";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "0";
+                                            hun1 = "850";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_13= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set13);
+                        selSp4.setAdapter(sel4_13);
                         break;
+                        //라그나로크의 경고
                     case 14:
+                        String[] set14 = {"4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "37";
+                                            hun1 = "420";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "38";
+                                            hun1 = "850";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                        ArrayAdapter<String> sel4_14= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set14);
+                        selSp4.setAdapter(sel4_14);
                         break;
+                        //고대 신화의 무기
                     case 15:
-                        break;
-                    case 16:
+                        String[] set15 = {"4"};
+                        selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch (position){
+                                    case 0 :
+                                        if (selSp2.getSelectedItem().equals("0초")){
+                                            spd1 = "37";
+                                            hun1 = "420";
+                                        }
+                                        if (selSp2.getSelectedItem().equals("1초")){
+                                            spd1 = "38";
+                                            hun1 = "850";
+                                        }
+                                        break;
+                                }
+                                text3.setText(spd1);
+                                text4.setText(hun1);
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+                            }
+                        });
+                        ArrayAdapter<String> sel4_15= new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, set15);
+                        selSp4.setAdapter(sel4_15);
                         break;
                 }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        ArrayAdapter<String> sel3Adapter = new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, sel_7Name);
+        selSp3.setAdapter(sel3Adapter);
+    }
+//6성 장비 개수 선택
+    private void sel6_set(){
+        selSp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            switch (position){
+                //초신성의 강림자
+                case 0 :
+                    String[] set6_0 = {"4","6"};
+                                       selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                           @Override
+                                           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                               switch (position){
+                                                   case 0 :
+                                                       if(selSp2.getSelectedItem().equals("0초")){
+                                                           spd1 = "25";
+                                                           hun1 = "0";
+                                                       }
+                                                       if(selSp2.getSelectedItem().equals("1초")){
+                                                           spd1 = "37";
+                                                           hun1 = "0";
+                                                       }
+                                                       if(selSp2.getSelectedItem().equals("2초")){
+                                                           spd1 = "45";
+                                                           hun1 = "0";
+                                                       }
+                                                       if(selSp2.getSelectedItem().equals("3초")){
+                                                           spd1 = "46";
+                                                           hun1 = "0";
+                                                       }
+                                                       break;
+                                                   case 1 :
+                                                       if(selSp2.getSelectedItem().equals("0초")){
+                                                           spd1 = "25";
+                                                           hun1 = "100";
+                                                       }
+                                                       if(selSp2.getSelectedItem().equals("1초")){
+                                                           spd1 = "37";
+                                                           hun1 = "300";
+                                                       }
+                                                       if(selSp2.getSelectedItem().equals("2초")){
+                                                           spd1 = "45";
+                                                           hun1 = "800";
+                                                         }
+                                                         if(selSp2.getSelectedItem().equals("3초")){
+                                                           spd1 = "46";
+                                                           hun1 = "1200";
+                                   }
+                                   break;
+                           }
+                                               text3.setText(spd1);
+                                               text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+
+                    });
+                    ArrayAdapter<String> sel6_0 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_0);
+                    selSp4.setAdapter(sel6_0);
+                    break;
+                    //정의의 신궁
+                case 1 :
+                    String[] set6_1 = {"4","6"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "0";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "100";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "300";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "800";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "1200";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+
+                    });
+                    ArrayAdapter<String> sel6_1 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_1);
+                    selSp4.setAdapter(sel6_1);
+                    break;
+                    //암흑군단장의 전투복
+                case 2 :
+                    String[] set6_2 = {"4","6"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "0";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "100";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "300";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "800";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "1200";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+
+                    });
+                    ArrayAdapter<String> sel6_2 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_2);
+                    selSp4.setAdapter(sel6_2);
+                    break;
+                    //빙결의 기사 무장
+                case 3 :
+                    String[] set6_3 = {"4","6"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "0";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "100";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "300";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "800";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "1200";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                    ArrayAdapter<String> sel6_3 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_3);
+                    selSp4.setAdapter(sel6_3);
+                    break;
+                    //야차왕의 무구
+                case 4 :
+                    String[] set6_4 = {"2","4"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "15";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "22";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "26";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "27";
+                                        hun1 = "0";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "15";
+                                        hun1 = "70";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "22";
+                                        hun1 = "210";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "26";
+                                        hun1 = "500";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "27";
+                                        hun1 = "750";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                    ArrayAdapter<String> sel6_4 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_4);
+                    selSp4.setAdapter(sel6_4);
+                    break;
+                    //풍요의 유산
+                case 5 :
+                    String[] set6_5 = {"2","4"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "15";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "22";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "26";
+                                        hun1 = "0";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "27";
+                                        hun1 = "0";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "15";
+                                        hun1 = "70";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "22";
+                                        hun1 = "210";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "26";
+                                        hun1 = "500";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "27";
+                                        hun1 = "750";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                    ArrayAdapter<String> sel6_5 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_5);
+                    selSp4.setAdapter(sel6_5);
+                    break;
+                    //고대 차원수의 무장
+                case 6 :
+                    String[] set6_6 = {"2","4"};
+                    selSp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            switch (position){
+                                case 0 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "0";
+                                        hun1 = "30";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "0";
+                                        hun1 = "90";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "0";
+                                        hun1 = "200";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "0";
+                                        hun1 = "250";
+                                    }
+                                    break;
+                                case 1 :
+                                    if(selSp2.getSelectedItem().equals("0초")){
+                                        spd1 = "25";
+                                        hun1 = "30";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("1초")){
+                                        spd1 = "37";
+                                        hun1 = "90";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("2초")){
+                                        spd1 = "45";
+                                        hun1 = "200";
+                                    }
+                                    if(selSp2.getSelectedItem().equals("3초")){
+                                        spd1 = "46";
+                                        hun1 = "250";
+                                    }
+                                    break;
+                            }
+                            text3.setText(spd1);
+                            text4.setText(hun1);
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                    ArrayAdapter<String> sel6_6 = new ArrayAdapter<String>(ResultActivity.this ,R.layout.support_simple_spinner_dropdown_item, set6_6);
+                    selSp4.setAdapter(sel6_6);
+                    break;
+            }
             }
 
             @Override
@@ -292,10 +1102,7 @@ public class ResultActivity extends AppCompatActivity implements AdapterView.OnI
 
             }
         });
-
-        ArrayAdapter<String> sel3Adapter = new ArrayAdapter<String>(ResultActivity.this, R.layout.support_simple_spinner_dropdown_item, sel_7Name);
-        selSp3.setAdapter(sel3Adapter);
-
-
+        ArrayAdapter<String> sel6Name_Adapter = new ArrayAdapter<String>(this ,R.layout.support_simple_spinner_dropdown_item, sp_Rank_6Name);
+        selSp3.setAdapter(sel6Name_Adapter);
     }
 }
